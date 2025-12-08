@@ -1,0 +1,183 @@
+
+html, body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Zalando', sans-serif;
+}
+
+/* base */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 2.5rem;
+    font-family: 'Macondo', cursive;
+}
+
+.nav-item {
+    border-bottom: #00bfff 2px solid;
+    transition-duration: 300ms;
+}
+
+.nav-item:hover {
+    background-color: #00bfff;
+    color: white;
+    border-radius: 5px;
+}
+
+.navbar-nav {
+    gap: 0.5rem;
+}
+
+/* index */
+.hero {
+    background: linear-gradient(135deg, #00bfff 10%, #0080ff 40%, #000000 50%, #808080 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+#services {
+    background-color: #007bff53;
+    border-radius: 10px;
+}
+.service-card, .service-available {
+    transition: transform 0.3s;
+}
+.service-card:hover, .service-available:hover {
+    transform: translateY(-10px);
+}
+
+form {
+    border-color:darkblue;
+    border-width: 2px;
+    border-radius: 0.625em;
+    border-style: solid;
+    padding: 0.625rem;
+}
+
+#feedback .container {
+    box-shadow: inset 2px 2px 10px rgba(2, 101, 172, 0.921);
+    padding: 0.5rem;
+    border-radius: 0.625em;
+    background-color: #00bfff7d;
+}
+
+/* about */
+.mission-vision .row{
+    background-image: url(../images/auto-1868726_1920.jpg);
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: overlay;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.mission-vision .row, .services {
+    box-shadow: 2px 4px 8px rgba(2, 31, 139, 0.487);
+}
+
+.mission-vision .row p{
+    margin-bottom: 20px;
+    font-size: 0.9375rem;
+}
+
+.mission-vision .row h3{
+    text-decoration-line: underline;
+    color: #007bff;
+}
+
+.mission-vision .row .col-md-6 .card{
+    border-left: 0.25rem solid #007bff;
+    border-radius: 10px 0 0 10px;
+    max-height: 250px;
+    min-height: 100px;
+    margin: 5px 0;
+    /* background-color: rgba(255, 255, 255, 0.8); */
+}
+
+.offers, .services {
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: overlay;
+    border-radius: 10px;
+    width: 100%;
+    max-height: 1000px;
+    min-height: 500px;
+    text-align: center;
+}
+
+.offers {
+    background-image: url("../images/garage-891802_1920.jpg") ;
+    box-shadow: 2px 4px 8px #00bfff7d;
+}
+
+.services {
+    background-image: url(../images/engine-4827135_1920.jpg);
+}
+
+.offers h2, .services h2 {
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.offers .card, .services .card, .mission-vision .row .col-md-6 .card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+    transition-duration: 300ms;
+}
+
+.offers .card:hover, .services .card:hover, .mission-vision .row .col-md-6 .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 2px 4px 8px rgba(2, 101, 172, 0.921);
+    background-color: white;
+}
+
+@media (width < 768px) {
+    body {
+        padding: 0 10px;
+    }
+}
+
+/* register form */
+.register_form {
+    background-color: gainsboro;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 4px 8px rgba(2, 101, 172, 0.921);
+    width: 100%;
+}
+
+.register_form .row form {
+    background-color: #007bff53;
+    max-height: 600px;
+}
+
+.register_form .row img {
+    max-width: 800px;
+    min-height: 600x;
+    min-height: 400px;
+    max-height: 600px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.register_form .row  {
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.service-available {
+    background-color: #007bff53;
+    color: white;
+    min-width: 200px;
+    max-width: 80%;
+}
+.delete_btn {
+    padding: 5px 10px;
+}

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block title %}Mekanika - Home{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Welcome to Mekanika</h1>
+        <p class="lead">Find Mechanical Services & Share Your Experience</p>
+    </div>
+</div>
+
+<!-- Search Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4" style="text-decoration-line: underline;"    >Search Mechanical Services</h2>
+        <form method="GET" action="#">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search services...">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5" style="text-decoration-line: underline;">Our Services</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card service-card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Auto Repair</h5>
+                        <p class="card-text">Find trusted auto repair services near you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card service-card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Maintenance</h5>
+                        <p class="card-text">Regular maintenance for your vehicles.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card service-card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Diagnostics</h5>
+                        <p class="card-text">Professional diagnostic services available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Feedback Section -->
+<section id="feedback" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5" style="text-decoration-line: underline;">Send Us Your Feedback</h2>
+        <div class="row">
+            <img src="{% static 'images/mechanic-2523250_1920.png' %}" alt="Mechanic" class="col-md-4 mb-4 mx-auto d-block" style="max-height: 500px; object-fit: contain;">
+            <div class="col-md-6 mx-auto">
+                <form method="POST" action="#">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="service" class="form-label">Service Used</label>
+                        <input type="text" class="form-control" id="service" name="service">
+                    </div>
+                    <div class="mb-3">
+                        <label for="rating" class="form-label">Rating</label>
+                        <select class="form-select" id="rating" name="rating" required>
+                            <option value="">Select rating</option>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Good</option>
+                            <option value="3">3 - Average</option>
+                            <option value="2">2 - Poor</option>
+                            <option value="1">1 - Very Poor</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Feedback</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit Feedback</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

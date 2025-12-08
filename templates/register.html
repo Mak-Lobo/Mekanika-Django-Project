@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Register — Mekanika{% endblock %}
+
+{% block content %}
+<div class="register_form container mt-5 mb-5">
+  <h2 class="mb-4 text-center">Create Your Account</h2>
+
+  <div class="row">
+    <img src="{% static 'images/mecahnic-customer.jpg' %}" alt="Mechanic with Customer" class="mb-4 col-md-6 ">
+    <form method="post" action="" class="col-md-6">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div class="row ">
+      <div class="col-md-6 mb-3">
+        <label for="{{ form.first_name.id_for_label }}" class="form-label">First Name</label>
+        <input type="text" name="first_name" class="form-control" required>
+        {{ form.first_name.errors }}
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="{{ form.last_name.id_for_label }}" class="form-label">Last Name</label>
+        <input type="text" name="last_name" class="form-control" required>
+        {{ form.last_name.errors }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="id_username" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" required>
+      {{ form.username.errors }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_email" class="form-label">Email</label>
+      <input type="email" name="email" class="form-control" required>
+      {{ form.email.errors }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_phone_number" class="form-label">Phone Number</label>
+      <input type="text" name="phone_number" class="form-control">
+      {{ form.phone_number.errors }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_address" class="form-label">Address</label>
+      <textarea name="address" class="form-control" rows="3"></textarea>
+      {{ form.address.errors }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_password1" class="form-label">Password</label>
+      <input type="password" name="password1" class="form-control" required>
+      {{ form.password1.errors }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_password2" class="form-label">Confirm Password</label>
+      <input type="password" name="password2" class="form-control" required>
+      {{ form.password2.errors }}
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Register</button>
+  </form>
+  </div>
+</div>
+{% endblock %}
