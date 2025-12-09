@@ -154,13 +154,10 @@ form {
 
 .register_form .row form {
     background-color: #007bff53;
-    max-height: 600px;
 }
 
 .register_form .row img {
     max-width: 800px;
-    min-height: 600x;
-    min-height: 400px;
     max-height: 600px;
     border-radius: 30px;
     text-align: center;
@@ -173,11 +170,22 @@ form {
 }
 
 .service-available {
-    background-color: #007bff53;
+    background-color: #007bff;
     color: white;
     min-width: 200px;
     max-width: 80%;
 }
 .delete_btn {
     padding: 5px 10px;
+}
+
+/* footer */
+.social-icons a i {
+    transition-duration: 300s;
+}
+
+.social-icons a i:hover {
+    color: #00bfff;
+    transform: translateY(-10px) scale(200%);
+    
 }

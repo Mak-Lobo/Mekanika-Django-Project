@@ -2,6 +2,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from decimal import Decimal, InvalidOperation
 
 from .models import Service
+from user.models import FeedBack
+
+
+def feedback(request):
+    """Render feedback page."""
+    feedback_list = FeedBack.objects.all()
+    return render(request, 'feedback.html', {'feedback': feedback_list})
 
 
 def add_service(request):

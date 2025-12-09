@@ -10,6 +10,11 @@
   <div class="row">
     <img src="{% static 'images/mecahnic-customer.jpg' %}" alt="Mechanic with Customer" class="mb-4 col-md-6 ">
     <form method="post" action="" class="col-md-6">
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
     {% csrf_token %}
     {{ form.non_field_errors }}
 
@@ -52,13 +57,13 @@
 
     <div class="mb-3">
       <label for="id_password1" class="form-label">Password</label>
-      <input type="password" name="password1" class="form-control" required>
+      <input type="password" name="password" class="form-control" required>
       {{ form.password1.errors }}
     </div>
 
     <div class="mb-3">
       <label for="id_password2" class="form-label">Confirm Password</label>
-      <input type="password" name="password2" class="form-control" required>
+      <input type="password" name="confirm_password" class="form-control" required>
       {{ form.password2.errors }}
     </div>
 

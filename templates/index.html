@@ -70,7 +70,8 @@
         <div class="row">
             <img src="{% static 'images/mechanic-2523250_1920.png' %}" alt="Mechanic" class="col-md-4 mb-4 mx-auto d-block" style="max-height: 500px; object-fit: contain;">
             <div class="col-md-6 mx-auto">
-                <form method="POST" action="#">
+                <form method="POST" action="{% url 'feedback' %}">
+                    {% csrf_token %}
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>
