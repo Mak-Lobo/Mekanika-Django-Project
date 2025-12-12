@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from Admin.models import Service
+
 # Create your models here.
 
 # feedback model
@@ -16,6 +18,7 @@ class FeedBack(models.Model):
 
     name = models.CharField(max_length=100, null=True)
     email = models.EmailField()
+    service = models.ForeignKey(Service, on_delete=models.SET_NULL, null=True, blank=True)
     message = models.TextField()
     rating = models.IntegerField(choices=RATING_CHOICES, null=True)
 

@@ -4,7 +4,7 @@ import Admin.views as views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('feedback/', views.feedback, name='feedback'),
+    path('feedback_view/', views.feedback, name='admin_feedback_list'),
     path('add_service/', views.add_service, name='add_service'),
     path('add_service/delete/<int:pk>/', views.delete_service, name='delete_service'),
 ]

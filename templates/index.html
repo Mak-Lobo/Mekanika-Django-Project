@@ -70,7 +70,7 @@
         <div class="row">
             <img src="{% static 'images/mechanic-2523250_1920.png' %}" alt="Mechanic" class="col-md-4 mb-4 mx-auto d-block" style="max-height: 500px; object-fit: contain;">
             <div class="col-md-6 mx-auto">
-                <form method="POST" action="{% url 'feedback' %}">
+                <form method="POST" action="{% url 'submit_feedback' %}">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
@@ -81,8 +81,13 @@
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="mb-3">
-                        <label for="service" class="form-label">Service Used</label>
-                        <input type="text" class="form-control" id="service" name="service">
+                        <label for="service" class="form-label">Service Used <span class="text-danger">*</span></label>
+                        <select class="form-select" id="service" name="service" required>
+                            <option value="">— Select a service —</option>
+                            {% for service in services %}
+                                <option value="{{ service.id }}">{{ service.name }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="rating" class="form-label">Rating</label>

@@ -1,10 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.views.decorators.http import require_POST
+
+from Admin.models import Service
 from .models import FeedBack, Customer
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+   services = Service.objects.filter(active=True).order_by('name')
+   return render(request, 'index.html', {'services': services})
 
 # about view
 def about(request):  
@@ -55,19 +59,33 @@ def register(request):
 def book_service(request):
     return render(request, 'book.html')
 
-def feedback(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        rating = request.POST.get('rating')
+def feedback_list(request):
+    """Render a list of all feedback entries."""
+    feedback = FeedBack.objects.all().order_by('-id')
+    return render(request, 'feedback.html', {'feedback': feedback})
 
-        # Create and save feedback object
-        FeedBack.objects.create(
-            name=name,
-            email=email,
-            message=message,
-            rating=rating
-        )
-        return redirect('index')
-    return render(request, 'index.html')
+@require_POST
+def submit_feedback(request):
+    """Handle the submission of the feedback form. Only accepts POST."""
+    name = request.POST.get('name')
+    email = request.POST.get('email')
+    service_id = request.POST.get('service')
+    message = request.POST.get('message')
+    rating = request.POST.get('rating')
+
+    service = None
+    if service_id:
+        try:
+            service = Service.objects.get(pk=service_id)
+        except (Service.DoesNotExist, ValueError):
+            # Handle case where service_id is invalid, maybe log it
+            service = None
+
+    FeedBack.objects.create(
+        name=name,
+        email=email,
+        service=service,
+        message=message,
+        rating=rating
+    )
+    return redirect('index')
