@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Login — Mekanika{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5 register_form" style="max-width: 500px;">
+  <h2 class="mb-4 text-center">Login to Your Account</h2>
+
+  {% if error %}
+  <div class="alert alert-danger" role="alert">
+      {{ error }}
+  </div>
+  {% endif %}
+
+  <form method="post" action="{% url 'login' %}" class="login_form">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" id="username" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" id="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Login</button>
+  </form>
+  <p class="text-center mt-3">
+    Don't have an account? <a href="{% url 'register' %}">Register here</a>.
+  </p>
+</div>
+{% endblock %}

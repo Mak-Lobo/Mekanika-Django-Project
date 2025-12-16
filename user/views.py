@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 
 from Admin.models import Service
@@ -55,6 +57,26 @@ def register(request):
         return redirect('index')
 
     return render(request, 'register.html')
+
+def login_view(request):
+    error = None
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            auth_login(request, user)
+            return redirect('index')  # Redirect to the homepage on successful login
+        else:
+            error = 'Invalid username or password. Please try again.'
+    
+    return render(request, 'login.html', {'error': error})
+
+@login_required
+def logout_view(request):
+    auth_logout(request)
+    return redirect('index')
+
 
 def book_service(request):
     return render(request, 'book.html')

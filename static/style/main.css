@@ -156,6 +156,10 @@ form {
     background-color: #007bff53;
 }
 
+.login_form {
+    background-color: #007bff53;
+}
+
 .register_form .row img {
     max-width: 800px;
     max-height: 600px;
